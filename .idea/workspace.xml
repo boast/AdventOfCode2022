@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6cf57d3-54e5-4736-b4e6-d6bc7a240847" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/test/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdventOfCode2022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdventOfCode2022.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/aoc/days/Day02Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/aoc/days/Day02Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +101,7 @@
       <recent name="aoc.days" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.All Test Suite">
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="aoc.App" />
       <module name="AdventOfCode2022" />
@@ -107,6 +109,82 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All Test Suite" type="TestNG" temporary="true">
+      <module name="AdventOfCode2022" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/test/testng.xml" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Day01Test" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AdventOfCode2022" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aoc.days.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="aoc.days" />
+      <option name="MAIN_CLASS_NAME" value="aoc.days.Day01Test" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Day02Test" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AdventOfCode2022" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aoc.days.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="aoc.days" />
+      <option name="MAIN_CLASS_NAME" value="aoc.days.Day02Test" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Run" />
+      <item itemvalue="TestNG.Day02Test" />
+      <item itemvalue="TestNG.Day01Test" />
+      <item itemvalue="TestNG.All Test Suite" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.Day01Test" />
+        <item itemvalue="TestNG.Day02Test" />
+        <item itemvalue="TestNG.All Test Suite" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -120,7 +198,7 @@
       <workItem from="1669723176859" duration="3510000" />
       <workItem from="1669733998587" duration="5157000" />
       <workItem from="1669882588101" duration="2938000" />
-      <workItem from="1669894733149" duration="1658000" />
+      <workItem from="1669894733149" duration="1909000" />
     </task>
     <servers />
   </component>
