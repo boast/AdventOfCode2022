@@ -13,8 +13,7 @@ import java.util.Map;
  * Advent of Code 2022
  */
 final class App {
-    private static final Map<Integer, Day> DAYS = Map.of(1, new Day01());
-    
+    private static final Map<Integer, Day> DAYS      = Map.of(1, new Day01());
     /**
      * Main entry point
      *

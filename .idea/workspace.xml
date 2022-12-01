@@ -10,23 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6cf57d3-54e5-4736-b4e6-d6bc7a240847" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdventOfCode2022.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/day01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc/common/Day.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc/common/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc/days/Day01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc/days/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/day01.test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/aoc/days/AbstractDayTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/aoc/days/Day01Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdventOfCode2022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdventOfCode2022.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/day01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/day01.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc/common/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/common/Day.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc/days/Day01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/days/Day01.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +32,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
+        <option value="JUnit5 Test Class" />
         <option value="package-info" />
+        <option value="Class" />
+        <option value="TestNG Test Class" />
       </list>
     </option>
   </component>
@@ -61,10 +58,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "TestNG",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.TestNG": "aoc.days.DayTest",
+    "create.test.in.the.same.root": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-19",
+    "last_opened_file_path": "C:/Users/dave/source/repos/AdventOfCode2022/test",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,8 +82,32 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dave\source\repos\AdventOfCode2022\resources" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="aoc.days.DayTest" />
+      <recent name="aoc.common.DayTest" />
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dave\source\repos\AdventOfCode2022\test\aoc\days" />
+      <recent name="C:\Users\dave\source\repos\AdventOfCode2022\test\aoc" />
+      <recent name="C:\Users\dave\source\repos\AdventOfCode2022\test\aoc\common" />
+      <recent name="C:\Users\dave\source\repos\AdventOfCode2022\test" />
+      <recent name="C:\Users\dave\source\repos\AdventOfCode2022\src\aoc\test" />
+    </key>
+    <key name="IntroduceConstantDialog.RECENTS_KEY">
+      <recent name="aoc.App" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="aoc.days" />
+      <recent name="aoc.common" />
       <recent name="aoc" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="aoc.days" />
     </key>
   </component>
   <component name="RunManager">
@@ -98,7 +129,9 @@
       <updated>1669722914369</updated>
       <workItem from="1669722920920" duration="237000" />
       <workItem from="1669723176859" duration="3510000" />
-      <workItem from="1669733998587" duration="4742000" />
+      <workItem from="1669733998587" duration="5157000" />
+      <workItem from="1669882588101" duration="2938000" />
+      <workItem from="1669894733149" duration="1589000" />
     </task>
     <servers />
   </component>

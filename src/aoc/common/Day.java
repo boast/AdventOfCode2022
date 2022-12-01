@@ -12,7 +12,7 @@ public interface Day {
      * @param input Input lines as list (same for both parts)
      * @return Solution as string
      */
-    String part1(List<String> input);
+    String part1(final List<String> input);
     
     /**
      * Solve part 2
@@ -20,5 +20,5 @@ public interface Day {
      * @param input Input lines as list (same for both parts)
      * @return Solution as string
      */
-    String part2(List<String> input);
+    String part2(final List<String> input);
 }
