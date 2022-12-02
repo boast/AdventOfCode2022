@@ -7,7 +7,10 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Day 1: Calorie Counting
+ * <b>Day 1: Calorie Counting</b><br>
+ * Straight forward, just sort the list and then calculate the score.
+ *
+ * @see <a href="https://adventofcode.com/2022/day/1">Day 1: Calorie Counting</a>
  */
 public final class Day01 implements Day {
     @Override
