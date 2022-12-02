@@ -9,12 +9,14 @@ $classContent = @"
 package aoc.days;
 
 import aoc.common.Day;
+import org.jetbrains.annotations.NonNls;
 
 import java.util.List;
 
 /**
  * Day ${day}:
  */
+ @NonNls
 public final class Day${day} implements Day {
     @Override
     public String part1(final List<String> input) {

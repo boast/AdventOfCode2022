@@ -1,6 +1,7 @@
 package aoc.days;
 
 import aoc.common.Day;
+import org.jetbrains.annotations.NonNls;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -12,6 +13,7 @@ import java.util.List;
  *
  * @see <a href="https://adventofcode.com/2022/day/1">Day 1: Calorie Counting</a>
  */
+@NonNls
 public final class Day01 implements Day {
     @Override
     public String part1(final List<String> input) {
