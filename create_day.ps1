@@ -14,18 +14,18 @@ import org.jetbrains.annotations.NonNls;
 import java.util.List;
 
 /**
- * Day ${day}:
+ * <b>Day ${day}:</b><br>
  */
  @NonNls
 public final class Day${day} implements Day {
     @Override
     public String part1(final List<String> input) {
-        return "Not implemented Part 1"; //NON-NLS
+        return "Not implemented Part 1";
     }
 
     @Override
     public String part2(final List<String> input) {
-        return "Not implemented Part 2"; //NON-NLS
+        return "Not implemented Part 2";
     }
 }
 "@
