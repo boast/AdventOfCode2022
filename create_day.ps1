@@ -48,7 +48,7 @@ public class Day${day}Test extends AbstractDayTest {
 
     @Test
     public void testPart2() {
-        final var data = getInput(${day});
+        final var data = getInput(${dayInt});
         final var day  = new Day${day}();
 
         assertEquals(day.part2(data), "Not implemented Part 2", "Part 2");
