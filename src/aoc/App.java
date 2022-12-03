@@ -32,7 +32,7 @@ final class App {
      * @throws IOException If an I/O error occurs
      */
     public static void main(final String[] args) throws IOException {
-        final var day = args.length > 0 ? Integer.parseInt(args[0]) : 1;
+        final var day = args.length > 0 ? Integer.parseInt(args[0]) : DAYS.size();
         
         System.out.println(MessageFormat.format("AoC 2022 - Day {0}", day));
         
