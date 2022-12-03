@@ -2,7 +2,6 @@ package aoc;
 
 import aoc.common.Day;
 import aoc.days.*;
-import org.jetbrains.annotations.NonNls;
 
 import java.io.IOException;
 import java.nio.file.Files;
