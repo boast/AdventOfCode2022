@@ -19,12 +19,12 @@ import java.util.List;
  @NonNls
 public final class Day${day} implements Day {
     @Override
-    public String part1(final List<String> input) {
+    public Object part1(final List<String> input) {
         return "Not implemented Part 1";
     }
 
     @Override
-    public String part2(final List<String> input) {
+    public Object part2(final List<String> input) {
         return "Not implemented Part 2";
     }
 }
