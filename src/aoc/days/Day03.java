@@ -3,7 +3,6 @@ package aoc.days;
 import aoc.common.*;
 import org.jetbrains.annotations.NonNls;
 
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -12,7 +11,7 @@ import java.util.List;
  * I also included the list-partition method in a common class, because I think it could be useful in the future.<br>
  * Finally, there are other methods how to find the intersection of two or more lists, but considering that the overlap
  * was guaranteed to be only one element, going by indexOf was simplest (i.e. using
- * {@link Collection#retainAll(Collection)}).
+ * {@link java.util.Collection#retainAll(java.util.Collection)}).
  */
 @SuppressWarnings("HardCodedStringLiteral")
 @NonNls
