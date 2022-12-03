@@ -3,10 +3,16 @@ package aoc.days;
 import aoc.common.*;
 import org.jetbrains.annotations.NonNls;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
  * <b>Day 03: Rucksack Reorganization</b><br>
+ * Not to hard, always a bit fiddly to do char-int math, but one can use chars directly: {@code i - 'a'}.<br>
+ * I also included the list-partition method in a common class, because I think it could be useful in the future.<br>
+ * Finally, there are other methods how to find the intersection of two or more lists, but considering that the overlap
+ * was guaranteed to be only one element, going by indexOf was simplest (i.e. using
+ * {@link Collection#retainAll(Collection)}).
  */
 @SuppressWarnings("HardCodedStringLiteral")
 @NonNls

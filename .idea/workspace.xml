@@ -10,16 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6cf57d3-54e5-4736-b4e6-d6bc7a240847" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/aoc/common/CollectionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc/common/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/common/Day.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc/days/Day01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/days/Day01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc/days/Day02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/days/Day02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/aoc/days/Day01Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/aoc/days/Day01Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/aoc/days/Day02Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/aoc/days/Day02Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc/days/Day03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/days/Day03.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +246,7 @@
       <workItem from="1669934865454" duration="51000" />
       <workItem from="1669934928221" duration="3506000" />
       <workItem from="1669968053507" duration="6600000" />
-      <workItem from="1670058479810" duration="4292000" />
+      <workItem from="1670058479810" duration="5461000" />
     </task>
     <servers />
   </component>
