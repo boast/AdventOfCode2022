@@ -57,18 +57,12 @@ public final class Day02 implements Day {
     }
     
     @Override
-    public String part1(final List<String> input) {
-        return Integer.toString(input.stream()
-                                        .map(line -> line.split(" "))
-                                        .mapToInt(parts -> getOutcomePart1(parts[0], parts[1]))
-                                        .sum());
+    public Object part1(final List<String> input) {
+        return input.stream().map(line -> line.split(" ")).mapToInt(parts -> getOutcomePart1(parts[0], parts[1])).sum();
     }
     
     @Override
-    public String part2(final List<String> input) {
-        return Integer.toString(input.stream()
-                                        .map(line -> line.split(" "))
-                                        .mapToInt(parts -> getOutcomePart2(parts[0], parts[1]))
-                                        .sum());
+    public Object part2(final List<String> input) {
+        return input.stream().map(line -> line.split(" ")).mapToInt(parts -> getOutcomePart2(parts[0], parts[1])).sum();
     }
 }

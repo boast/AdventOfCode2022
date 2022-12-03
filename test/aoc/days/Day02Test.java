@@ -10,7 +10,7 @@ public class Day02Test extends AbstractDayTest {
         final var data = getInput(2);
         final var day  = new Day02();
         
-        assertEquals(day.part1(data), "15", "Part 1");
+        assertEquals(day.part1(data), 15, "Part 1");
     }
     
     @Test
@@ -18,6 +18,6 @@ public class Day02Test extends AbstractDayTest {
         final var data = getInput(2);
         final var day  = new Day02();
         
-        assertEquals(day.part2(data), "12", "Part 2");
+        assertEquals(day.part2(data), 12, "Part 2");
     }
 }

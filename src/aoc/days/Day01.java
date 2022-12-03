@@ -16,22 +16,16 @@ import java.util.List;
 @NonNls
 public final class Day01 implements Day {
     @Override
-    public String part1(final List<String> input) {
-        final var max = getSums(input).stream()
-                .max(Comparator.comparing(Integer::intValue))
-                .orElseThrow();
-        
-        return max.toString();
+    public Object part1(final List<String> input) {
+        return getSums(input).stream().max(Comparator.comparing(Integer::intValue)).orElseThrow();
     }
     
     @Override
-    public String part2(final List<String> input) {
-        final var max3 = getSums(input).stream()
+    public Object part2(final List<String> input) {
+        return getSums(input).stream()
                 .sorted(Comparator.comparing(Integer::intValue).reversed())
                 .limit(3L)
                 .reduce(0, Integer::sum);
-    
-        return max3.toString();
     }
     
     private static List<Integer> getSums(final Iterable<String> input) {
