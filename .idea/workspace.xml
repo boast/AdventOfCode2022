@@ -10,14 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6cf57d3-54e5-4736-b4e6-d6bc7a240847" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/aoc/common/CollectionUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdventOfCode2022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdventOfCode2022.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/day02.test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/day02.test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/day02.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/day02.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc/common/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/common/Day.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aoc/days/Day01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/days/Day01.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aoc/days/Day02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc/days/Day02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/aoc/days/Day01Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/aoc/days/Day01Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/aoc/days/Day02Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/aoc/days/Day02Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test/testng.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +32,8 @@
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="package-info" />
-        <option value="Class" />
         <option value="TestNG Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,6 +56,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -77,7 +80,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -110,11 +113,11 @@
       <recent name="aoc.days" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="TestNG.All Test Suite">
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="aoc.App" />
       <module name="AdventOfCode2022" />
-      <option name="PROGRAM_PARAMETERS" value="2" />
+      <option name="PROGRAM_PARAMETERS" value="1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,17 +195,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Day03Test" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AdventOfCode2022" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aoc.days.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="aoc.days" />
+      <option name="MAIN_CLASS_NAME" value="aoc.days.Day03Test" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Run" />
+      <item itemvalue="TestNG.Day03Test" />
       <item itemvalue="TestNG.Day02Test" />
       <item itemvalue="TestNG.Day01Test" />
       <item itemvalue="TestNG.All Test Suite" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.All Test Suite" />
+        <item itemvalue="TestNG.Day03Test" />
         <item itemvalue="TestNG.Day02Test" />
         <item itemvalue="TestNG.Day01Test" />
-        <item itemvalue="TestNG.All Test Suite" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +253,8 @@
       <workItem from="1669894733149" duration="2816000" />
       <workItem from="1669934865454" duration="51000" />
       <workItem from="1669934928221" duration="3506000" />
-      <workItem from="1669968053507" duration="5876000" />
+      <workItem from="1669968053507" duration="6600000" />
+      <workItem from="1670058479810" duration="4292000" />
     </task>
     <servers />
   </component>
@@ -238,5 +271,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
