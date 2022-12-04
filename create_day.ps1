@@ -68,7 +68,8 @@ $testngContent = @"
 </suite>
 "@
 
-((Get-Content -Path "test/testng.xml" -Raw) -replace "</suite>", $testngContent).Trim() | Set-Content -Path "test/testng.xml"
+((Get-Content -Path "test/testng.xml" -Raw) -replace "</suite>", $testngContent).Trim() `
+    | Set-Content -Path "test/testng.xml"
 
 ((Get-Content -Path "src/aoc/App.java" -Raw) `
     -replace "\(\)\)\;\r\n    }", "());`r`n        DAYS.put(${dayInt}, new Day${day}());`r`n    }").Trim() `
