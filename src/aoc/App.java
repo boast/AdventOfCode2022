@@ -23,6 +23,7 @@ final class App {
         DAYS.put(2, new Day02());
         DAYS.put(3, new Day03());
         DAYS.put(4, new Day04());
+        DAYS.put(5, new Day05());
     }
     
     /**
