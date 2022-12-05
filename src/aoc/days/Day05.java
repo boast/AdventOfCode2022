@@ -43,14 +43,14 @@ public final class Day05 implements Day {
         final var instructions = buildInstructions(input);
         final var queues       = buildQueues(instructions);
         final var moves        = buildMoves(input, (long) instructions.size() + 2);
-    
+        
         for (final var move : moves) {
             var       count          = Integer.parseInt(move[1]);
             final var fromQueueIndex = Integer.parseInt(move[3]) - 1;
             final var toQueueIndex   = Integer.parseInt(move[5]) - 1;
             
             final var tmpList = new LinkedList<Character>();
-        
+            
             while (count-- > 0) {
                 tmpList.push(queues.get(fromQueueIndex).pop());
             }
@@ -59,7 +59,7 @@ public final class Day05 implements Day {
                 queues.get(toQueueIndex).push(tmpList.pop());
             }
         }
-    
+        
         return buildFinalQueueString(queues);
     }
     
@@ -98,11 +98,11 @@ public final class Day05 implements Day {
     
     private static String buildFinalQueueString(final Collection<? extends LinkedList<Character>> queues) {
         final var sb = new StringBuilder(queues.size());
-    
+        
         for (final var queue : queues) {
             sb.append(queue.getFirst());
         }
-    
+        
         return sb.toString();
     }
 }
