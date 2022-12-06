@@ -322,7 +322,7 @@
     <inspection_tool class="IgnoredJUnitTest" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ImplicitDefaultCharsetUsage" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ImplicitNumericConversion" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ignoreWideningConversions" value="false" />
+      <option name="ignoreWideningConversions" value="true" />
       <option name="ignoreCharConversions" value="true" />
       <option name="ignoreConstantConversions" value="true" />
     </inspection_tool>
