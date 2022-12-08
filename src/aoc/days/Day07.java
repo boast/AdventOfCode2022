@@ -28,7 +28,7 @@ public final class Day07 implements Day {
             final var currentFolder = folderQueue.remove();
             final var size          = currentFolder.getSize();
             
-            if (size <= 100000) {
+            if (size <= 100_000) {
                 totalSize += size;
             }
             
@@ -42,32 +42,32 @@ public final class Day07 implements Day {
     public Object part2(final List<String> input) {
         final var root        = createFileSystem(input);
         final var folderQueue = new LinkedList<Folder>();
-        var bestFolder = root;
+        var       bestFolder  = root;
         
         final int fileSystemSize = 70_000_000;
-        final int updateSize = 30_000_000;
-        final int freeSize = fileSystemSize - root.getSize();
-        final int toDeleteSize = updateSize - freeSize;
-    
+        final int updateSize     = 30_000_000;
+        final int freeSize       = fileSystemSize - root.getSize();
+        final int toDeleteSize   = updateSize - freeSize;
+        
         folderQueue.add(root);
-    
+        
         while (!folderQueue.isEmpty()) {
             final var currentFolder = folderQueue.remove();
             final var size          = currentFolder.getSize();
-        
+            
             if (size >= toDeleteSize && size < bestFolder.getSize()) {
                 bestFolder = currentFolder;
             }
-        
+            
             folderQueue.addAll(currentFolder.getFolders());
         }
-    
+        
         return bestFolder.getSize();
     }
     
     private static Folder createFileSystem(final Collection<String> input) {
         final var instructions = input.stream().skip(1).toList();
-        final var root         = new Folder("root");
+        final var root         = new Folder();
         var       currentDir   = root;
         
         for (@NonNls final var instruction : instructions) {
@@ -102,17 +102,13 @@ public final class Day07 implements Day {
     
     private static final class Folder {
         private final @NonNls String       name;
-        @SuppressWarnings("FieldNotUsedInToString")
         private final         Folder       parent;
-        @SuppressWarnings("FieldNotUsedInToString")
         private final         List<File>   files   = new ArrayList<>();
-        @SuppressWarnings("FieldNotUsedInToString")
         private final         List<Folder> folders = new ArrayList<>();
-        @SuppressWarnings("FieldNotUsedInToString")
         private               int          size    = -1;
         
-        private Folder(final String name) {
-            this(name, null);
+        private Folder() {
+            this("root", null);
         }
         
         private Folder(final String name, final Folder parent) {
@@ -143,11 +139,6 @@ public final class Day07 implements Day {
         
         final Folder getParent() {
             return parent;
-        }
-        
-        @Override
-        public String toString() {
-            return "Folder{" + "name='" + name + '\'' + '}';
         }
     }
 }

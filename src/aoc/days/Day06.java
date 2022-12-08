@@ -3,7 +3,6 @@ package aoc.days;
 import aoc.common.Day;
 import org.jetbrains.annotations.NonNls;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
