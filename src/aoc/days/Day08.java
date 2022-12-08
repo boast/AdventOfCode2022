@@ -32,38 +32,44 @@ public final class Day08 implements Day {
         final var visibleTreeMap = new int[xMax][yMax];
         
         // X asc and desc
+        //noinspection DuplicatedCode
         for (var y = 0; y < yMax; y++) {
-            var current = -1;
+            var currentMax = -1;
             for (var x = 0; x < xMax; x++) {
-                current = getCurrentAndMarkVisible(treeMap, visibleTreeMap, x, y, current);
+                if (treeMap[x][y] > currentMax) {
+                    visibleTreeMap[x][y] = 1;
+                    currentMax = treeMap[x][y];
+                }
             }
-            current = -1;
+            currentMax = -1;
             for (var x = xMax - 1; x >= 0; x--) {
-                current = getCurrentAndMarkVisible(treeMap, visibleTreeMap, x, y, current);
+                if (treeMap[x][y] > currentMax) {
+                    visibleTreeMap[x][y] = 1;
+                    currentMax = treeMap[x][y];
+                }
             }
         }
         
         // Y asc and desc
+        //noinspection DuplicatedCode
         for (var x = 0; x < xMax; x++) {
-            var current = -1;
+            var currentMax = -1;
             for (var y = 0; y < yMax; y++) {
-                current = getCurrentAndMarkVisible(treeMap, visibleTreeMap, x, y, current);
+                if (treeMap[x][y] > currentMax) {
+                    visibleTreeMap[x][y] = 1;
+                    currentMax = treeMap[x][y];
+                }
             }
-            current = -1;
+            currentMax = -1;
             for (var y = yMax - 1; y >= 0; y--) {
-                current = getCurrentAndMarkVisible(treeMap, visibleTreeMap, x, y, current);
+                if (treeMap[x][y] > currentMax) {
+                    visibleTreeMap[x][y] = 1;
+                    currentMax = treeMap[x][y];
+                }
             }
         }
         
         return Arrays.stream(visibleTreeMap).flatMapToInt(Arrays::stream).sum();
-    }
-    
-    private static int getCurrentAndMarkVisible(final int[][] treeMap, final int[][] visibleTreeMap, final int x, final int y, final int current) {
-        if (treeMap[x][y] > current) {
-            visibleTreeMap[x][y] = 1;
-            return treeMap[x][y];
-        }
-        return current;
     }
     
     @Override
@@ -86,6 +92,7 @@ public final class Day08 implements Day {
         final var xMax = treeMap.length;
         final var yMax = treeMap[0].length;
         
+        //noinspection DuplicatedCode
         var xAsc = 0;
         for (var iX = x + 1; iX < xMax; iX++) {
             xAsc++;
@@ -102,6 +109,7 @@ public final class Day08 implements Day {
             }
         }
         
+        //noinspection DuplicatedCode
         var yAsc = 0;
         for (var iY = y + 1; iY < yMax; iY++) {
             yAsc++;
