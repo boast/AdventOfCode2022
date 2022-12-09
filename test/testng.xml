@@ -40,4 +40,9 @@
             <class name="aoc.days.Day08Test"/>
         </classes>
     </test>
+    <test name="aoc.test.Day09Test">
+        <classes>
+            <class name="aoc.days.Day09Test"/>
+        </classes>
+    </test>
 </suite>
