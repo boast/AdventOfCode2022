@@ -15,19 +15,23 @@ public class Point {
     /**
      * Up direction.
      */
-    public static final Point UP    = new Point(0, 1);
+    public static final Point UP     = new Point(0, 1);
     /**
      * Down direction.
      */
-    public static final Point DOWN  = new Point(0, -1);
+    public static final Point DOWN   = new Point(0, -1);
     /**
      * Left direction.
      */
-    public static final Point LEFT  = new Point(-1, 0);
+    public static final Point LEFT   = new Point(-1, 0);
     /**
      * Right direction.
      */
-    public static final Point RIGHT = new Point(1, 0);
+    public static final Point RIGHT  = new Point(1, 0);
+    /**
+     * Zero point.
+     */
+    public static final Point ORIGIN = new Point();
     
     /**
      * Creates a new point at origin.
@@ -84,7 +88,6 @@ public class Point {
     public final int manhattanDistance(final Point other) {
         return Math.abs(x - other.x) + Math.abs(y - other.y);
     }
-    
     
     /**
      * Gets all directly neighboring points of this point.
