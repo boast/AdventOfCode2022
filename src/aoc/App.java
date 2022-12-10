@@ -6,7 +6,6 @@ import aoc.days.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +27,7 @@ final class App {
         DAYS.put(7, new Day07());
         DAYS.put(8, new Day08());
         DAYS.put(9, new Day09());
+        DAYS.put(10, new Day10());
     }
     
     /**
@@ -39,10 +39,10 @@ final class App {
     public static void main(final String[] args) throws IOException {
         final var day = args.length > 0 ? Integer.parseInt(args[0]) : DAYS.size();
         
-        System.out.println(MessageFormat.format("AoC 2022 - Day {0}", day));
+        System.out.printf("\033[1mAoC 2022 - Day %d\033[0m%n", day);
         
-        final var paddedDay = String.format("%02d", day);
-        final var path      = Paths.get("resources", "day" + paddedDay + ".txt");
+        final var paddedDay = "%02d".formatted(day);
+        final var path      = Paths.get("resources", "day%s.txt".formatted(paddedDay));
         final var input     = Files.readAllLines(path);
         
         System.out.printf("Part 1: %s%n", DAYS.get(day).part1(input));
