@@ -10,6 +10,8 @@ import java.util.List;
  * <b>Day 06: Tuning Trouble</b><br>
  * Again a simple queue/stack problem with different queue sizes. The only tricky part to watch out for is to remove the
  * last element from the queue when the queue is full instead of the first (pop() vs. removeLast()).
+ *
+ * @see <a href="https://adventofcode.com/2022/day/6">Day 06: Tuning Trouble</a>
  */
 @NonNls
 public final class Day06 implements Day {

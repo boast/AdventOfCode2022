@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
  * The second part needed some thinking and a realisation, that you can reduce those values in size by taking the LCM
  * of all values. A hint to this method is given as all the divisors are prime numbers, so the LCM is also the simple
  * product of all numbers.<br>
+ *
+ * @see <a href="https://adventofcode.com/2022/day/11">Day 11: Monkey in the Middle</a>
  */
 @NonNls
 public final class Day11 implements Day {

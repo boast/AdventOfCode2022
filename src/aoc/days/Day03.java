@@ -12,6 +12,8 @@ import java.util.List;
  * Finally, there are other methods how to find the intersection of two or more lists, but considering that the overlap
  * was guaranteed to be only one element, going by indexOf was simplest (i.e. using
  * {@link java.util.Collection#retainAll(java.util.Collection)}).
+ *
+ * @see <a href="https://adventofcode.com/2022/day/3">Day 03: Rucksack Reorganization</a>
  */
 @SuppressWarnings("HardCodedStringLiteral")
 @NonNls

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * <b>Day 09 Rope Bridge:</b><br>
+ * <b>Day 09: Rope Bridge</b><br>
  * Finally, a day where we need a real 2d point class. Through refactoring, the two parts could also be reduced to the
  * same problem, just with different "rope" sizes. But from the top:<br>
  * First we need to keep track of the points visited by the tail (last element of the rope). We do this by using a
@@ -20,6 +20,8 @@ import java.util.Set;
  * aligning the rest of the body one by one. The align method separates the four possible conditions (no movement
  * needed, movement horizontally, movement vertically, movement diagonally).<br>
  * Note that the moveRope method not only returns the newly visited points, but also modifies the rope position.
+ *
+ * @see <a href="https://adventofcode.com/2022/day/9">Day 09: Rope Bridge</a>
  */
 @NonNls
 public final class Day09 implements Day {

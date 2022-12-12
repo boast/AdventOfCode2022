@@ -6,13 +6,15 @@ import org.jetbrains.annotations.NonNls;
 import java.util.*;
 
 /**
- * <b>Day 07 No Space Left On Device:</b><br>
+ * <b>Day 07: No Space Left On Device</b><br>
  * The first small challenge is to parse the instructions and create the file system. Again I refrain from using regular
  * expressions and instead do simple string operations and created a small state machine to parse the instructions.<br>
  * The second part is to iterate through the file system which is the first application of a breadth first traversal. We
  * start with the root folder and then sequentially add all folders to the queue. The queue is processed until it is
  * empty. To prevent multiple folder size calculations we use a local size cache (memoization), as the size of a folder
  * never changes.
+ *
+ * @see <a href="https://adventofcode.com/2022/day/7">Day 07: No Space Left On Device</a>
  */
 @NonNls
 public final class Day07 implements Day {

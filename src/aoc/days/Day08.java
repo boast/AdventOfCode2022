@@ -21,6 +21,8 @@ import java.util.List;
  * happen at the edges and the runtime barely changes (inside you see at least one tree in any direction, even if the
  * tree in front of you is large...). Also to finalize the generated maps in both parts, we use the nice flatMapToInt
  * stream function to reduce the 2D array to a single line of integers.
+ *
+ * @see <a href="https://adventofcode.com/2022/day/8">Day 08: Treetop Tree House</a>
  */
 @NonNls
 public final class Day08 implements Day {

@@ -17,6 +17,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 1, in part 2 we use a string builder anyway.<br>
  * Note that the extraction of the process method and the generalization to a CycleFunction was done in a small
  * refactoring step to reduce the code duplication for both parts.
+ *
+ * @see <a href="https://adventofcode.com/2022/day/10">Day 10: Cathode-Ray Tube</a>
  */
 @NonNls
 public final class Day10 implements Day {

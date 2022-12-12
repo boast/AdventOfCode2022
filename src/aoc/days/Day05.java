@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
  * this is perfect for this task ({@link LinkedList}).<br>
  * The second part uses another helper queue in-between the two queues, which in turn reverses the order of the elements
  * automatically (LIFO).
+ *
+ * @see <a href="https://adventofcode.com/2022/day/5">Day 05: Supply Stacks</a>
  */
 @NonNls
 public final class Day05 implements Day {

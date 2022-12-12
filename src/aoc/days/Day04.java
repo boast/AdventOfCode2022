@@ -12,6 +12,8 @@ import java.util.List;
  * Simpler to understand, less errors and usually faster because split is optimized for this left/right scenario.<br>
  * Part 1 is straight forward and you do a simple bounds check.<br>
  * Part 2 is easier if you realize that just the start or the end of one range must be contained in the other range.
+ *
+ * @see <a href="https://adventofcode.com/2022/day/4">Day 04: Camp Cleanup</a>
  */
 @NonNls
 public final class Day04 implements Day {
