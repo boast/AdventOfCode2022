@@ -29,6 +29,7 @@ final class App {
         DAYS.put(9, new Day09());
         DAYS.put(10, new Day10());
         DAYS.put(11, new Day11());
+        DAYS.put(12, new Day12());
     }
     
     /**

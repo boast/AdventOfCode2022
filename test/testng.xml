@@ -55,4 +55,9 @@
             <class name="aoc.days.Day11Test"/>
         </classes>
     </test>
+    <test name="aoc.test.Day12Test">
+        <classes>
+            <class name="aoc.days.Day12Test"/>
+        </classes>
+    </test>
 </suite>
