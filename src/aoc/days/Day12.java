@@ -11,17 +11,17 @@ import java.util.PriorityQueue;
 
 /**
  * <b>Day 12: Hill Climbing Algorithm</b><br>
- * Hello old friend Dijkstra, I've missed you.<br>
+ * &mdash; <i>Hello old friend Dijkstra, I've missed you.</i><br>
  * As the search space is rather small, the concrete implementation (i.e. using a priority queue or a normal queue) does
  * not really matter, but this should be a more or less optimal solution.<br>
  * Part 1 is a straightforward shortest path problem and part 2 just searches for more solutions with different starting
  * points. One thing to consider in part 2 is that some starting points are "islands" in regards of the rules and will
  * not have a solution.<br>
- * I cannot find a faster solution for part 2 than trying out every possible starting point. Even when limiting the
- * the search by the current best path solution, the runtime increase seems to be due to the amount of possible starting
- * points and not because some paths are long. May be there is another analytical solution to reduce the search space
- * and therefore also the runtime, but as the current solution is still way bellow 1 second runtime (which is the
- * general "cut-off" point for AoC solutions) it is probably ok.
+ * However, after finding a solution brute force with all the starting points I realized, that you can just reverse the
+ * search and start at the end and find the shortest path to the start. This is much faster for part 2 where you now
+ * definitely need a priority queue and can just stop after finding the first "lowest" tile. If you would not use a
+ * priority queue, the order of which you check the adjacent tiles would matter and you could find wrong solutions.<br>
+ * Now the only difference between part 1 and part 2 is the break-condition in the BFS search.
  *
  * @see <a href="https://adventofcode.com/2022/day/12">Day 12: Hill Climbing Algorithm</a>
  */
@@ -29,61 +29,43 @@ import java.util.PriorityQueue;
 public final class Day12 implements Day {
     @Override
     public Object part1(final List<String> input) {
-        return getShortestPath(getTrail(input));
+        return getShortestPathReverse(getTrail(input), false);
     }
     
     @Override
     public Object part2(final List<String> input) {
-        final var trail = getTrail(input);
-        final var starts = trail.map()
-                                .entrySet()
-                                .stream()
-                                .filter(e -> e.getValue() == 0)
-                                .map(Map.Entry::getKey)
-                                .toArray(Point[]::new);
-        
-        var bestPath = Integer.MAX_VALUE;
-        
-        for (final var start : starts) {
-            final var currentPath = getShortestPath(new Trail(trail.map(), start, trail.end()));
-            
-            if (currentPath != -1 && currentPath < bestPath) {
-                bestPath = currentPath;
-            }
-        }
-        
-        return bestPath;
+        return getShortestPathReverse(getTrail(input), true);
     }
     
-    private static int getShortestPath(final Trail trail) {
+    private static int getShortestPathReverse(final Trail trail, final boolean part2) {
         final var visited = new HashMap<Point, Integer>();
         final var queue   = new PriorityQueue<Node>();
         
-        queue.add(new Node(trail.start(), 0));
+        queue.add(new Node(trail.end(), 0));
         
         while (!queue.isEmpty()) {
             final var node = queue.poll();
             
-            if (visited.containsKey(node.point()) && visited.get(node.point()) <= node.distance()) {
+            if (part2 ? trail.map().get(node.point()) == 0 : node.point().equals(trail.start())) {
+                return node.distance();
+            }
+            
+            if (visited.getOrDefault(node.point(), Integer.MAX_VALUE) <= node.distance()) {
                 continue;
             }
             
             visited.put(node.point(), node.distance());
             
-            if (node.point().equals(trail.end())) {
-                return node.distance();
-            }
-            
-            final var maxDistance = trail.map().get(node.point()) + 1;
+            final var minElevation = trail.map().get(node.point()) - 1;
             
             for (final var p : node.point().getNeighbours()) {
-                if (trail.map().getOrDefault(p, Integer.MAX_VALUE) <= maxDistance) {
+                if (trail.map().getOrDefault(p, Integer.MIN_VALUE) >= minElevation) {
                     queue.add(new Node(p, node.distance() + 1));
                 }
             }
         }
         
-        return -1;
+        throw new IllegalStateException("No solution found");
     }
     
     private static Trail getTrail(final List<String> input) {
