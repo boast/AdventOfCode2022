@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NonNls;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -20,6 +21,8 @@ import java.util.stream.Collectors;
  */
 @NonNls
 public final class Day11 implements Day {
+    private static final Pattern COMMA_AND_SPACE = Pattern.compile(", ");
+    
     @Override
     public Object part1(final List<String> input) {
         final var monkeys = parseMonkeys(input);
@@ -53,7 +56,9 @@ public final class Day11 implements Day {
         final var monkeys = new ArrayList<Monkey>();
         
         for (final var lines : CollectionUtil.partition(input, 7)) {
-            final var items = Arrays.stream(lines.get(1).trim().replace("Starting items: ", "").split(", ")) //NON-NLS
+            final var items = Arrays.stream(COMMA_AND_SPACE.split(lines.get(1)
+                                                                       .trim()
+                                                                       .replace("Starting items: ", ""))) //NON-NLS
                                     .map(Long::parseLong).collect(Collectors.toCollection(ArrayList::new));
             final var operationString = lines.get(2).trim().replace("Operation: new = old ", ""); //NON-NLS
             
@@ -100,7 +105,15 @@ public final class Day11 implements Day {
         
         private long inspectionCount = 0L;
         
-        Monkey(final List<Monkey> monkeys, final ArrayList<Long> items, final Function<? super Long, Long> operation, final int test, final int testTrue, final int testFalse) {
+        @SuppressWarnings("ConstructorWithTooManyParameters")
+        Monkey(
+                final List<Monkey> monkeys,
+                final ArrayList<Long> items,
+                final Function<? super Long, Long> operation,
+                final int test,
+                final int testTrue,
+                final int testFalse
+        ) {
             this.monkeys = monkeys;
             this.items = items;
             this.operation = operation;
