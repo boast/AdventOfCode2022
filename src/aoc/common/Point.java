@@ -130,7 +130,7 @@ public class Point {
     
     @Override
     public final int hashCode() {
-        return Objects.hash(x, y);
+        return x * 31 + y; // Objects.hash(x, y);
     }
     
     @Override
