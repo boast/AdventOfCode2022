@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,10 @@ import java.util.regex.Pattern;
  * Interesting enough, the hot path analysis in IntelliJ shows that the Point::hashCode method is the most expensive and
  * could be optimized. Instead of the built in Objects.hash(x, y) I changed it to a simple x * 31 + y and the increased
  * the performance a bit. The built in method has to deal with some arrays as it is a variadic function which can be
- * omitted in this case.
+ * omitted in this case.<br>
+ * After reading some comments in the AoC subreddit, I decided to also try a flood fill algorithm. More or less DFS
+ * which I used similarly (BFS/DFS) on different days already and it really seems to be a silver bullet for so many AoC
+ * problems.
  */
 @NonNls
 public final class Day14 implements Day {
@@ -31,26 +35,32 @@ public final class Day14 implements Day {
     
     @Override
     public Object part1(final List<String> input) {
-        final var map = getMap(input);
+        final var map  = getMap(input);
+        final var yMax = map.keySet().stream().mapToInt(Point::getY).max().orElse(0);
         
-        final var yMax      = map.keySet().stream().mapToInt(Point::getY).max().orElse(0) + 1;
-        var       isFlowing = true;
-        
-        while (isFlowing) {
+        while (true) {
             var position = new Point(500, 0);
             
             while (true) {
-                final var positionDown = position.add(Point.UP); // Sand flows in positive Y direction
+                final var positionNext = position.add(Point.UP);
                 
-                if (positionDown.getY() >= yMax) {
-                    isFlowing = false;
-                    break;
+                if (positionNext.getY() > yMax) {
+                    return getSandCount(map);
                 }
                 
-                final var nextPosition = getNextPosition(map, positionDown);
+                Point tmpPosition = null;
                 
-                if (nextPosition != null) {
-                    position = nextPosition;
+                for (final var p : new Point[]{
+                        positionNext, positionNext.add(Point.LEFT), positionNext.add(Point.RIGHT)
+                }) {
+                    if (map.getOrDefault(p, Field.AIR) == Field.AIR) {
+                        tmpPosition = p;
+                        break;
+                    }
+                }
+                
+                if (tmpPosition != null) {
+                    position = tmpPosition;
                     continue;
                 }
                 
@@ -58,70 +68,31 @@ public final class Day14 implements Day {
                 break;
             }
         }
-        
-        return getSandCount(map);
     }
     
     @Override
     public Object part2(final List<String> input) {
-        final var map = getMap(input);
+        final var map       = getMap(input);
+        final var yMax      = map.keySet().stream().mapToInt(Point::getY).max().orElse(0) + 2;
+        final var fillQueue = new ArrayDeque<Point>();
         
-        final var bottom    = map.keySet().stream().mapToInt(Point::getY).max().orElse(0) + 2;
-        var       isFlowing = true;
+        fillQueue.add(new Point(500, 0));
         
-        while (isFlowing) {
-            var position = new Point(500, 0);
+        while (!fillQueue.isEmpty()) {
+            final var point = fillQueue.poll();
             
-            while (true) {
-                final var positionDown = position.add(Point.UP); // Sand flows in positive Y direction
-                
-                if (positionDown.getY() >= bottom) {
-                    map.put(position, Field.SAND);
-                    break;
-                }
-                
-                final var nextPosition = getNextPosition(map, positionDown);
-                
-                if (nextPosition != null) {
-                    position = nextPosition;
-                    continue;
-                }
-                
-                map.put(position, Field.SAND);
-                
-                if (position.equals(new Point(500, 0))) {
-                    isFlowing = false;
-                }
-                
-                break;
+            if (point.getY() >= yMax || map.getOrDefault(point, Field.AIR) != Field.AIR) {
+                continue;
             }
+            
+            map.put(point, Field.SAND);
+            
+            fillQueue.add(point.add(Point.UP));
+            fillQueue.add(point.add(Point.UP).add(Point.LEFT));
+            fillQueue.add(point.add(Point.UP).add(Point.RIGHT));
         }
         
         return getSandCount(map);
-    }
-    
-    private static @Nullable Point getNextPosition(final Map<Point, ? super Field> map, final Point positionDown) {
-        final var nextTileDown = map.getOrDefault(positionDown, Field.AIR);
-        
-        if (nextTileDown == Field.AIR) {
-            return positionDown;
-        }
-        
-        final var positionDownLeft = positionDown.add(Point.LEFT);
-        final var nextTileDownLeft = map.getOrDefault(positionDownLeft, Field.AIR);
-        
-        if (nextTileDownLeft == Field.AIR) {
-            return positionDownLeft;
-        }
-        
-        final var positionDownRight = positionDown.add(Point.RIGHT);
-        final var nextTileDownRight = map.getOrDefault(positionDownRight, Field.AIR);
-        
-        if (nextTileDownRight == Field.AIR) {
-            return positionDownRight;
-        }
-        
-        return null;
     }
     
     private static long getSandCount(final Map<Point, Field> map) {
