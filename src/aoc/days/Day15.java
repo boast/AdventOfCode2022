@@ -4,8 +4,6 @@ import aoc.common.Day;
 import aoc.common.Point;
 import org.jetbrains.annotations.NonNls;
 
-import java.io.IOException;
-import java.sql.Array;
 import java.util.*;
 
 /**
@@ -90,26 +88,26 @@ public final class Day15 implements Day {
             
             for (int x = Math.max(0, sensor.getX() - distance); x <= Math.min(sensor.getX() + distance, max); x++) {
                 final var distanceDelta = distance - Math.abs(x - sensor.getX());
-                final var range = new Range(sensor.getY() - distanceDelta, sensor.getY() + distanceDelta);
-    
+                final var range         = new Range(sensor.getY() - distanceDelta, sensor.getY() + distanceDelta);
+                
                 map[x].add(range);
             }
         }
         
         var x = 0L;
         
-        for(final var ranges : map) {
-            ranges.sort(Comparator.comparingInt(Range::getStart));
+        for (final var ranges : map) {
+            ranges.sort(Comparator.comparingInt(range -> range.start));
             final var current = ranges.get(0);
             
             for (int i = 1; i < ranges.size(); i++) {
                 final var next = ranges.get(i);
                 
-                if (next.getStart() <= current.getEnd() + 1) {
-                    current.setEnd(Math.max(current.getEnd(), next.getEnd()));
-                } else {
-                    return x * 4000000 + (current.getEnd() + 1);
+                if (next.start > current.end + 1) {
+                    return x * 4_000_000 + (current.end + 1);
                 }
+                
+                current.end = Math.max(current.end, next.end);
             }
             x++;
         }
@@ -141,27 +139,11 @@ public final class Day15 implements Day {
     }
     
     private static final class Range {
-        private int start;
-        private int end;
-    
+        int start;
+        int end;
+        
         Range(final int start, final int end) {
             this.start = start;
-            this.end = end;
-        }
-    
-        int getStart() {
-            return start;
-        }
-        
-        void setStart(final int start) {
-            this.start = start;
-        }
-        
-        int getEnd() {
-            return end;
-        }
-        
-        void setEnd(final int end) {
             this.end = end;
         }
     }
