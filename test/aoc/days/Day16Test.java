@@ -18,6 +18,6 @@ public class Day16Test extends AbstractDayTest {
         final var data = getInput(16);
         final var day  = new Day16();
 
-        assertEquals(day.part2(data), "Not implemented Part 2", "Part 2");
+        assertEquals(day.part2(data), 1707, "Part 2");
     }
 }
