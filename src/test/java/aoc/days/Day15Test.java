@@ -1,5 +1,6 @@
 package aoc.days;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -9,7 +10,7 @@ public class Day15Test extends AbstractDayTest {
     public void testPart1() {
         final var data = getInput(15);
 
-        assertEquals(Day15.part1WithParams(data, 10, 2000), 26L, "Part 1");
+        Assert.assertEquals(Day15.part1WithParams(data, 10, 2000), 26L, "Part 1");
     }
 
     @Test

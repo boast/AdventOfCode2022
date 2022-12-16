@@ -4,7 +4,7 @@ $day = $dayInt.ToString().PadLeft(2, "0")
 New-Item -Path "resources/day${day}.txt"
 New-Item -Path "resources/day${day}.test.txt"
 
-New-Item -Path "src/aoc/days/Day${day}.java"
+New-Item -Path "src/main/java/aoc/days/Day${day}.java"
 $classContent = @"
 package aoc.days;
 
@@ -29,9 +29,9 @@ public final class Day${day} implements Day {
     }
 }
 "@
-Add-Content -Path "src/aoc/days/Day${day}.java" -Value $classContent
+Add-Content -Path "src/main/java/aoc/days/Day${day}.java" -Value $classContent
 
-New-Item -Path "test/aoc/days/Day${day}Test.java"
+New-Item -Path "src/test/java/aoc/days/Day${day}Test.java"
 $testClassContent = @"
 package aoc.days;
 
@@ -57,7 +57,7 @@ public class Day${day}Test extends AbstractDayTest {
     }
 }
 "@
-Add-Content -Path "test/aoc/days/Day${day}Test.java" -Value $testClassContent
+Add-Content -Path "src/test/java/aoc/days/Day${day}Test.java" -Value $testClassContent
 
 $testngContent = @"
     <test name="aoc.test.Day${day}Test">
@@ -68,9 +68,9 @@ $testngContent = @"
 </suite>
 "@
 
-((Get-Content -Path "test/testng.xml" -Raw) -replace "</suite>", $testngContent).Trim() `
+((Get-Content -Path "src/test/java/testng.xml" -Raw) -replace "</suite>", $testngContent).Trim() `
     | Set-Content -Path "test/testng.xml"
 
-((Get-Content -Path "src/aoc/App.java" -Raw) `
+((Get-Content -Path "src/main/java/aoc/App.java" -Raw) `
     -replace "\(\)\)\;\r\n    }", "());`r`n        DAYS.put(${dayInt}, new Day${day}());`r`n    }").Trim() `
     | Set-Content -Path "src/aoc/App.java"
