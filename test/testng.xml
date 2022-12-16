@@ -75,4 +75,9 @@
             <class name="aoc.days.Day15Test"/>
         </classes>
     </test>
+    <test name="aoc.test.Day16Test">
+        <classes>
+            <class name="aoc.days.Day16Test"/>
+        </classes>
+    </test>
 </suite>
