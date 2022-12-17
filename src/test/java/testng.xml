@@ -80,4 +80,9 @@
             <class name="aoc.days.Day16Test"/>
         </classes>
     </test>
+    <test name="aoc.test.Day17Test">
+        <classes>
+            <class name="aoc.days.Day17Test"/>
+        </classes>
+    </test>
 </suite>

@@ -3,7 +3,6 @@ package aoc.common;
 import org.jetbrains.annotations.NonNls;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * 2D point.
