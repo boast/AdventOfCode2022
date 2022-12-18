@@ -35,6 +35,7 @@ final class App {
         DAYS.put(15, new Day15());
         DAYS.put(16, new Day16());
         DAYS.put(17, new Day17());
+        DAYS.put(18, new Day18());
     }
     
     /**
