@@ -100,4 +100,9 @@
             <class name="aoc.days.Day20Test"/>
         </classes>
     </test>
+    <test name="aoc.test.Day21Test">
+        <classes>
+            <class name="aoc.days.Day21Test"/>
+        </classes>
+    </test>
 </suite>
