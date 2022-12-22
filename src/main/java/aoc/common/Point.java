@@ -11,6 +11,11 @@ public class Point {
     private final int x;
     private final int y;
     
+    public static final Point ARRAY_UP    = new Point(0, -1);
+    public static final Point ARRAY_DOWN  = new Point(0, 1);
+    public static final Point ARRAY_LEFT  = new Point(-1, 0);
+    public static final Point ARRAY_RIGHT = new Point(1, 0);
+    
     /**
      * Up direction.
      */
