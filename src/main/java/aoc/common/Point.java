@@ -1,8 +1,11 @@
 package aoc.common;
 
 import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * 2D point.
@@ -118,6 +121,37 @@ public class Point {
                 add(DOWN),
                 add(DOWN).add(RIGHT)
         );
+    }
+    
+    /**
+     * Gets all adjacent points of this point as an iterable (fast).
+     *
+     * @return The neighbours of this point, including diagonals.
+     */
+    public final Iterable<Point> getAdjacentIterable() {
+        return () -> new Iterator<>() {
+            private int index = 0;
+            
+            @Override
+            public boolean hasNext() {
+                return index < 8;
+            }
+            
+            @Override
+            public Point next() {
+                return switch (index++) {
+                    case 0 -> add(UP).add(LEFT);
+                    case 1 -> add(UP);
+                    case 2 -> add(UP).add(RIGHT);
+                    case 3 -> add(LEFT);
+                    case 4 -> add(RIGHT);
+                    case 5 -> add(DOWN).add(LEFT);
+                    case 6 -> add(DOWN);
+                    case 7 -> add(DOWN).add(RIGHT);
+                    default -> throw new NoSuchElementException("Invalid index: %s".formatted(index));
+                };
+            }
+        };
     }
     
     @Override
