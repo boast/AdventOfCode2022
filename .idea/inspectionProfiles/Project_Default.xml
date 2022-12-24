@@ -267,8 +267,8 @@
       <option name="ignoreCollectionLoops" value="false" />
     </inspection_tool>
     <inspection_tool class="ForwardCompatibility" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="HardCodedStringLiteral" enabled="true" level="WARNING" enabled_by_default="true">
-      <scope name="Tests" level="INFORMATION" enabled="true" editorAttributes="INFORMATION_ATTRIBUTES">
+    <inspection_tool class="HardCodedStringLiteral" enabled="false" level="WARNING" enabled_by_default="false">
+      <scope name="Tests" level="INFORMATION" enabled="false" editorAttributes="INFORMATION_ATTRIBUTES">
         <option name="ignoreForAssertStatements" value="true" />
         <option name="ignoreForExceptionConstructors" value="true" />
         <option name="ignoreForSpecifiedExceptionConstructors" value="" />
@@ -524,7 +524,7 @@
       <option name="m_limit" value="16" />
     </inspection_tool>
     <inspection_tool class="OverlyComplexBooleanExpression" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="m_limit" value="3" />
+      <option name="m_limit" value="6" />
       <option name="m_ignorePureConjunctionsDisjunctions" value="true" />
     </inspection_tool>
     <inspection_tool class="OverlyLargePrimitiveArrayInitializer" enabled="true" level="WARNING" enabled_by_default="true">
