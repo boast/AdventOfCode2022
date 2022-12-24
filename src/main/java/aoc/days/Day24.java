@@ -12,6 +12,8 @@ import java.util.*;
  * Sadly, today is not a complete solve - yet. I am off by 2 on part 2 and have not yet found the reason for this, as
  * the test case works fine and correct. Even with comparing with actual solutions from reddit I am not sure what is
  * wrong.<br>
+ * UPDATE: I found the error, the target position was wrong and I had an additional off-by-one error by not counting the
+ * final step correctly. The test case worked by accident.<br>
  * Part 1 and 2 can be done easily by BFS over all possible paths and I calculate the blizzards on each turn. This could
  * be optimized by calculating the blizzards cyclic states, but I do not think this is actually required, as the space
  * is not that big.<br>
@@ -23,39 +25,25 @@ import java.util.*;
 public final class Day24 implements Day {
     @Override
     public Object part1(final List<String> input) {
-        final var leftBlizzards  = new ArrayList<Point>();
-        final var rightBlizzards = new ArrayList<Point>();
-        final var upBlizzards    = new ArrayList<Point>();
-        final var downBlizzards  = new ArrayList<Point>();
-        final var xMax           = input.get(0).length() - 1;
-        final var yMax           = input.size() - 1;
+        final var map = parseMap(input);
         
-        for (var y = 1; y < yMax; y++) {
-            final var line = input.get(y);
-            for (var x = 1; x < xMax; x++) {
-                switch (line.charAt(x)) {
-                    case '>' -> {
-                        rightBlizzards.add(new Point(x, y));
-                    }
-                    case '<' -> {
-                        leftBlizzards.add(new Point(x, y));
-                    }
-                    case '^' -> {
-                        upBlizzards.add(new Point(x, y));
-                    }
-                    case 'v' -> {
-                        downBlizzards.add(new Point(x, y));
-                    }
-                }
-            }
-        }
-        final var map = new Map(leftBlizzards, rightBlizzards, upBlizzards, downBlizzards, xMax, yMax);
+        final var start = new Point(1, 0);
+        final var end   = new Point(map.xMax() - 1, map.yMax());
         
-        return doTrip(map, new Point(1, 0), new Point(xMax - 2, yMax), xMax, yMax, 0);
+        return doTrip(map, start, end, 0);
     }
     
     @Override
     public Object part2(final List<String> input) {
+        final var map = parseMap(input);
+        
+        final var start = new Point(1, 0);
+        final var end   = new Point(map.xMax() - 1, map.yMax());
+        
+        return doTrip(map, start, end, 2);
+    }
+    
+    private static Map parseMap(final List<String> input) {
         final var leftBlizzards  = new ArrayList<Point>();
         final var rightBlizzards = new ArrayList<Point>();
         final var upBlizzards    = new ArrayList<Point>();
@@ -67,51 +55,27 @@ public final class Day24 implements Day {
             final var line = input.get(y);
             for (var x = 1; x < xMax; x++) {
                 switch (line.charAt(x)) {
-                    case '>' -> {
-                        rightBlizzards.add(new Point(x, y));
-                    }
-                    case '<' -> {
-                        leftBlizzards.add(new Point(x, y));
-                    }
-                    case '^' -> {
-                        upBlizzards.add(new Point(x, y));
-                    }
-                    case 'v' -> {
-                        downBlizzards.add(new Point(x, y));
-                    }
+                    case '>' -> rightBlizzards.add(new Point(x, y));
+                    case '<' -> leftBlizzards.add(new Point(x, y));
+                    case '^' -> upBlizzards.add(new Point(x, y));
+                    case 'v' -> downBlizzards.add(new Point(x, y));
                 }
             }
         }
         
-        final var start  = new Point(1, 0);
-        final var target = new Point(xMax - 2, yMax);
-        final var map    = new Map(leftBlizzards, rightBlizzards, upBlizzards, downBlizzards, xMax, yMax);
-        
-        // 709 is too low, 711 is correct
-        return doTrip(map, start, target, xMax, yMax, 2);
+        return new Map(leftBlizzards, rightBlizzards, upBlizzards, downBlizzards, xMax, yMax);
     }
     
-    private static int doTrip(
-            final Map map,
-            final Point start,
-            final Point end,
-            final int xMax,
-            final int yMax,
-            final int stage
-    ) {
-        var currentMap   = map;
-        var positions    = Set.of(new Position(start, stage));
-        var steps        = 0;
+    private static int doTrip(final Map map, final Point start, final Point end, final int stage) {
+        var currentMap = map;
+        var positions  = Set.of(new Position(start, stage));
+        var steps      = 0;
         
         while (true) {
+            steps++;
             currentMap = doMove(currentMap);
             
-            final var blizzards = new HashSet<>();
-            blizzards.addAll(currentMap.upBlizzards());
-            blizzards.addAll(currentMap.downBlizzards());
-            blizzards.addAll(currentMap.leftBlizzards());
-            blizzards.addAll(currentMap.rightBlizzards());
-            
+            final var blizzards     = currentMap.getAllBlizzards();
             final var nextPositions = new HashSet<Position>();
             
             for (final var position : positions) {
@@ -124,15 +88,12 @@ public final class Day24 implements Day {
                         nextPositions.add(new Position(neighbor, position.stage()));
                         continue;
                     }
-                    // Grid limits ignore
+                    // Grid limits and blizzards ignore
                     if (neighbor.getX() <= 0 ||
-                        neighbor.getX() >= xMax ||
+                        neighbor.getX() >= map.xMax() ||
                         neighbor.getY() <= 0 ||
-                        neighbor.getY() >= yMax) {
-                        continue;
-                    }
-                    // Blizzards ignore
-                    if (blizzards.contains(neighbor)) {
+                        neighbor.getY() >= map.yMax() ||
+                        blizzards.contains(neighbor)) {
                         continue;
                     }
                     
@@ -158,8 +119,6 @@ public final class Day24 implements Day {
                 }
                 positions.add(position);
             }
-    
-            steps++;
         }
     }
     
@@ -171,6 +130,7 @@ public final class Day24 implements Day {
         final var newRightBlizzards = new ArrayList<Point>();
         final var newUpBlizzards    = new ArrayList<Point>();
         final var newDownBlizzards  = new ArrayList<Point>();
+        
         for (final var leftBlizzard : map.leftBlizzards()) {
             var next = leftBlizzard.add(Point.ARRAY_LEFT);
             if (next.getX() == 0) {
@@ -199,6 +159,7 @@ public final class Day24 implements Day {
             }
             newDownBlizzards.add(next);
         }
+        
         return new Map(newLeftBlizzards, newRightBlizzards, newUpBlizzards, newDownBlizzards, map.xMax(), map.yMax());
     }
     
@@ -210,5 +171,15 @@ public final class Day24 implements Day {
             int xMax,
             int yMax
     ) {
+        HashSet<Point> getAllBlizzards() {
+            final var blizzards = new HashSet<Point>();
+            
+            blizzards.addAll(leftBlizzards);
+            blizzards.addAll(rightBlizzards);
+            blizzards.addAll(upBlizzards);
+            blizzards.addAll(downBlizzards);
+            
+            return blizzards;
+        }
     }
 }
